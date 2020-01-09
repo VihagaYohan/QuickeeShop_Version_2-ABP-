@@ -1,0 +1,37 @@
+﻿@model IEnumerable<QuickeeShop.Product.Dto.ProductBL>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Product</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>UnitPrice</th>
+            <th>Quantity</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var product in Model)
+		{
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.ProductDescription</td>
+                <td>@product.UnitPrice</td>
+                <td>@product.Quantity</td>
+                <td>
+                    <a asp-route-Id="@product.Id" asp-controller="Product" asp-action="Edit">Edit</a> |
+                    <a asp-route-Id="@product.Id" asp-controller="Product" asp-action="Delete">Delete</a> |
+                </td>
+            </tr>
+		}
+    </tbody>
+</table>
+

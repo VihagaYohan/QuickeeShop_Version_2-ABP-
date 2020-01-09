@@ -1,0 +1,35 @@
+﻿@model QuickeeShop.Customer.Dto.CustomerBL
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<div class="text-center">
+    <h1>Customer ID : <span>@Model.Id</span></h1>
+</div>
+
+<form method="post"
+      asp-controller="Customer"
+      asp-action="Delete">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>@Model.FullName</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-controller="Customer" asp-action="Index" class="btn btn-success">Cancel</a>
+    </div>
+
+</form>
