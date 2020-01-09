@@ -1,0 +1,49 @@
+﻿@model QuickeeShop.Web.ViewModels.PlaceOrderViewModel
+@{
+    ViewData["Title"] = "Add Order";
+}
+
+<h2>Add Order</h2>
+
+<form method="post"
+      asp-controller="Order"
+      asp-action="Create">
+
+    <div class="col-md-6">
+        <label>Customer Name</label>
+        <select class="form-control">
+            <option>Select a customer</option>
+            @foreach (var customer in Model.CustomerNameList)
+            {
+                <option id="@customer.Value">@customer.Text</option>
+            } 
+        </select>
+    </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <td class="col-md-6">
+                    <div>
+                        <label>Product Name</label>
+                        <select>
+                            <option>Select a product</option>
+                            @foreach (var product in Model.ProductNameList)
+                            {
+                                <option id="@product.Value">@product.Text</option>
+                            }
+                        </select>
+                    </div>
+                </td>
+
+                <td>
+                    <label>Unit Price</label>
+                    <label></label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+
+
