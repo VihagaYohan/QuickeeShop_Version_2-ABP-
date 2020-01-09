@@ -4,7 +4,7 @@ using System.Text;
 
 namespace QuickeeShop.Order
 {
-	public class IOrderService
+	public interface IOrderService
 	{
 	}
 }

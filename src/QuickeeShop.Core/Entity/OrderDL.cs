@@ -10,7 +10,7 @@ namespace QuickeeShop.Entity
 		public int CustomerId { get; set; }
 		public CustomerDL Customer { get; set; }
 		public DateTime OrderDate { get; set; }
-		public IEntity<OrderItemDL> OrderItem { get; set; }
+		public IEnumerable<OrderItemDL> OrderItem { get; set; }
 		public decimal OrderTotal { get; set; }
 	}
 }
