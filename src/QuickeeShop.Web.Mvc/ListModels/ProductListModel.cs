@@ -9,5 +9,6 @@ namespace QuickeeShop.Web.ListModels
 	{
 		public int Value { get; set; }
 		public string Text { get; set; }
+		public decimal UnitPrice { get; set; }
 	}
 }

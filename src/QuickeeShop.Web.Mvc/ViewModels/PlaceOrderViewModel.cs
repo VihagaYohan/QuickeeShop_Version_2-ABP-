@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using QuickeeShop.Customer.Dto;
+using QuickeeShop.Order.Dto;
+using QuickeeShop.Product.Dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,23 +12,12 @@ namespace QuickeeShop.Web.ViewModels
 {
 	public class PlaceOrderViewModel
 	{
-        [Display(Name = "Order ID")]
-        public int OrderId { get; set; }
-
-        [Display(Name = "Order Date")]
-        public DateTime OrderDate { get; set; }
-
-        [Display(Name = "Order Total")]
-        public decimal OrderTotal { get; set; }
-
-        [Display(Name = "Customer Name")]
-        public List<SelectListItem> CustomerNameList { get; set; }
-
-        [Display(Name ="Product Name")]
-        public List<SelectListItem> ProductNameList { get; set; }
-
-        [Required(ErrorMessage = "Customer Name is required.")]
-        public int SelectedCustomerId { get; set; }
-
-    }
+		public IEnumerable<CustomerBL> Customers { get; set; }
+		public IEnumerable<ProductBL> Products { get; set; }
+		public DateTime OrderDate { get; set; }
+		public IEnumerable<OrderItemBL> OrderItems { get; set; }
+		public CustomerBL Customer { get; set; }
+		public ProductBL Product { get; set; }
+		public OrderBL Order { get; set; }
+	}
 }

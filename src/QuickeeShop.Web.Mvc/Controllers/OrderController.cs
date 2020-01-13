@@ -8,7 +8,9 @@ using QuickeeShop.Controllers;
 using QuickeeShop.Customer;
 using QuickeeShop.Customer.Dto;
 using QuickeeShop.Order;
+using QuickeeShop.Order.Dto;
 using QuickeeShop.Product;
+using QuickeeShop.Product.Dto;
 using QuickeeShop.Web.ListModels;
 using QuickeeShop.Web.ViewModels;
 
@@ -39,50 +41,30 @@ namespace QuickeeShop.Web.Controllers
         [HttpGet]
         public IActionResult Create() 
         {
-            var customerNameList = customerService.GetCustomers()
-                                                  .Select(s => new CustomerListModel
-                                                   {
-                                                       Text = s.FullName,
-                                                       Value = s.Id
-                                                   });
-            var productNameList = productService.AllProducts()
-                                                .Select(p => new ProductListModel
-                                                {
-                                                    Text = p.Name,
-                                                    Value = p.Id
-                                                });
-            PlaceOrderViewModel model = new PlaceOrderViewModel
+            try
             {
-                CustomerNameList = new List<SelectListItem>(),
-                ProductNameList = new List<SelectListItem>()
-            };
-
-            foreach (var item in customerNameList)
-            {
-                model.CustomerNameList.Add(new SelectListItem 
-                { 
-                    Text = item.Text,
-                    Value = item.Value.ToString()
-                });
-            }
-
-            foreach (var item in productNameList)
-            {
-                model.ProductNameList.Add(new SelectListItem
+                var viewModel = new PlaceOrderViewModel()
                 {
-                    Text = item.Text,
-                    Value = item.Value.ToString()
-                });
+                    Customers = customerService.GetCustomers(),
+                    Products = productService.AllProducts(),
+                    OrderDate = Convert.ToDateTime(DateTime.Today.ToShortDateString())
+                };
+                return View(viewModel);
             }
-
-            model.OrderDate = DateTime.Now;
-
-            return View(model);
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         [HttpPost]
-        public IActionResult Create(CustomerBL entity) 
+        public IActionResult CreateOrder(OrderBL entity) 
         {
+            if (ModelState.IsValid) 
+            {
+                orderService.AddOrder(entity);
+                return RedirectToAction("Index");
+            }
             return View();
         }
     }

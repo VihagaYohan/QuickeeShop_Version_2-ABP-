@@ -12,6 +12,9 @@ namespace QuickeeShop.Order
 		public OrderBLMapping()
 		{
 			CreateMap<OrderBL, OrderDL>().ReverseMap();
+			CreateMap<OrderItemBL, OrderItemDL>().ReverseMap();
+			CreateMap<OrderBL, OrderItemBL>().ReverseMap();
+			CreateMap<OrderDL, OrderItemDL>().ReverseMap();
 		}
 	}
 }

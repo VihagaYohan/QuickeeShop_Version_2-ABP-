@@ -8,5 +8,6 @@ namespace QuickeeShop.Order
 	public interface IOrderService
 	{
 		IEnumerable<OrderBL> AllOrder();
+		void AddOrder(OrderBL order);
 	}
 }

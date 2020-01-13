@@ -10,10 +10,22 @@ namespace QuickeeShop.Order.Dto
 {
 	public class OrderBL : EntityDto<int>
 	{
+		public OrderBL()
+		{
+
+		}
 		public int CustomerId { get; set; }
 		public CustomerBL Customer { get; set; }
 		public DateTime OrderDate { get; set; }
-		public IEntity<OrderItemBL> OrderItem { get; set; }
-		public decimal OrderTotal { get; set; }
+		public List<OrderItemBL> OrderItems { get; set; }
+		public decimal TotalAmount { get; set; }
+
+		public OrderBL(int customerid, DateTime orderdate, List<OrderItemBL> orderitems, decimal ordertotal)
+		{
+			CustomerId = customerid;
+			OrderDate = orderdate;
+			OrderItems = orderitems;
+			TotalAmount = ordertotal;
+		}
 	}
 }

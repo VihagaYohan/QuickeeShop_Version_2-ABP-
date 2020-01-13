@@ -29,6 +29,8 @@ namespace QuickeeShop.Web.Startup
         {
             IocManager.RegisterAssemblyByConvention(typeof(QuickeeShopWebMvcModule).GetAssembly());
             IocManager.Register<IRepository<CustomerDL>>();
+            IocManager.Register<IRepository<ProductDL>>();
+            IocManager.Register<IRepository<OrderDL>>();
         }
     }
 }

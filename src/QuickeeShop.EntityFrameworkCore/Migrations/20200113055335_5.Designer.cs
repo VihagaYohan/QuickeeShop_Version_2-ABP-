@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuickeeShop.EntityFrameworkCore;
 
 namespace QuickeeShop.Migrations
 {
     [DbContext(typeof(QuickeeShopDbContext))]
-    partial class QuickeeShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200113055335_5")]
+    partial class _5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1336,7 +1338,7 @@ namespace QuickeeShop.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("TotalAmount")
+                    b.Property<decimal>("OrderTotal")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
@@ -1356,7 +1358,7 @@ namespace QuickeeShop.Migrations
                     b.Property<decimal>("LineTotal")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("OrderId")
+                    b.Property<int?>("OrderDLId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductId")
@@ -1373,7 +1375,7 @@ namespace QuickeeShop.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderId");
+                    b.HasIndex("OrderDLId");
 
                     b.ToTable("OrderItems");
                 });
@@ -1640,9 +1642,9 @@ namespace QuickeeShop.Migrations
 
             modelBuilder.Entity("QuickeeShop.Entity.OrderItemDL", b =>
                 {
-                    b.HasOne("QuickeeShop.Entity.OrderDL", "Order")
-                        .WithMany("OrderItems")
-                        .HasForeignKey("OrderId");
+                    b.HasOne("QuickeeShop.Entity.OrderDL", null)
+                        .WithMany("OrderItem")
+                        .HasForeignKey("OrderDLId");
                 });
 
             modelBuilder.Entity("QuickeeShop.MultiTenancy.Tenant", b =>
