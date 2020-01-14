@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using QuickeeShop.Controllers;
@@ -21,14 +22,17 @@ namespace QuickeeShop.Web.Controllers
         private readonly ICustomerService customerService;
         private readonly IProductService productService;
         private readonly IOrderService orderService;
+        private readonly IMapper mapper;
 
         public OrderController(ICustomerService customerService,
                                IProductService productService,
-                               IOrderService orderService)
+                               IOrderService orderService,
+                               IMapper mapper)
         {
             this.customerService = customerService;
             this.productService = productService;
             this.orderService = orderService;
+            this.mapper = mapper;
         }
 
         [HttpGet]
@@ -67,5 +71,67 @@ namespace QuickeeShop.Web.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Update(int Id) 
+        {
+            try
+            {
+                var orderViewModel = new UpdateOrderViewModel()
+                {
+                    Customers = customerService.GetCustomers(),
+                    Products = productService.AllProducts(),
+                    Order = orderService.FindByOrderId(Id)
+                };
+                return View(orderViewModel);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Update(OrderBL entity) 
+        {
+            try
+            {
+                if (ModelState.IsValid) 
+                {
+                    orderService.UpdateOrder(entity);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int Id) 
+        {
+            try
+            {
+                var orderViewModel = new DeleteOrderViewModel()
+                {
+                    Customers = customerService.GetCustomers(),
+                    Products = productService.AllProducts(),
+                    Order = orderService.FindByOrderId(Id)
+                };
+
+                return View(orderViewModel);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Delete(OrderBL entity) 
+        {
+            return View();
+        } 
     }
 }

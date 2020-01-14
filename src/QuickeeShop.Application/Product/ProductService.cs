@@ -45,13 +45,13 @@ namespace QuickeeShop.Product
 		}
 
 		// update product quantity
-		public void UpdateQuantity(int productid, int qty)
-		{
-			var getId = productRepository.Get(productid);
-			getId.Quantity = getId.Quantity + qty;
-			var updateQty = mapper.Map<ProductDL>(getId);
-			productRepository.Update(updateQty);
-		}
+		//public void UpdateQuantity(int productid, int qty)
+		//{
+		//	var getId = productRepository.Get(productid);
+		//	getId.Quantity = getId.Quantity + qty;
+		//	var updateQty = mapper.Map<ProductDL>(getId);
+		//	productRepository.Update(updateQty);
+		//}
 
 		public void UpdateQuantity(List<OrderItemBL> orderItems) 
 		{

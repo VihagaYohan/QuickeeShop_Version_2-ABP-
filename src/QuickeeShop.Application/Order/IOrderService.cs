@@ -9,5 +9,8 @@ namespace QuickeeShop.Order
 	{
 		IEnumerable<OrderBL> AllOrder();
 		void AddOrder(OrderBL order);
+		OrderBL FindByOrderId(int Id);
+		void UpdateOrder(OrderBL order);
+		void DeleteOrder(int id);
 	}
 }

@@ -1,0 +1,146 @@
+﻿@model QuickeeShop.Web.ViewModels.UpdateOrderViewModel
+@{
+    ViewData["Title"] = "Update Order";
+}
+
+<div class="text-center">
+    <h2>Order ID : <span class="text-danger" id="orderId">@Model.Order.Id</span></h2>
+    <input type="hidden" id="orderDate" value="@Model.Order.OrderDate"/>
+</div>
+
+<form method="post"
+      asp-controller="Order"
+      asp-action="Update">
+
+    <div>
+        <label>Customer Name</label>
+        <select id="customerId" class="form-control">
+            <option value="@Model.Order.Customer.Id" selected>@Model.Order.Customer.FullName</option>
+            @foreach (var customer in Model.Customers)
+            {
+                <option class="customerUniq_id" value="@customer.Id">@customer.FullName</option>
+            }
+        </select>
+    </div>
+
+    <table class="table table-borderless">
+        <tr>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <td>
+                <select id="productId" class="form-control">
+                    <option>Select a product</option>
+                    @foreach (var product in Model.Products)
+                    {
+                        <option value="@product.Id"
+                                data-unit-price="@product.UnitPrice">
+                            @product.Name
+                        </option>
+                    }
+                </select>
+            </td>
+
+            <td>
+                <input type="text" id="unitPrice" class="form-control" readonly />
+            </td>
+
+            <td>
+                <input type="number" id="quantity" class="form-control" min="1" value="1" />
+            </td>
+
+            <td>
+                <button type="submit" id="btnAdd" class="btn btn-primary">Add</button>
+            </td>
+        </tr>
+    </table>
+
+    <div class="center-block">
+
+        <table id="orderItems" class="table">
+            <thead class="text-center">
+                <tr>
+                    <th></th>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody id="table-OrderItems">
+
+                @foreach (var orderItem in Model.Order.OrderItems)
+                {
+                    <tr class="table-Row">
+                        @* order line item Id *@
+                        <td>
+                            <input type="hidden" id="@orderItem.Id" value="@orderItem.Id" />
+                        </td>
+
+                        @* product id *@
+                        <td>
+                            <label>@orderItem.ProductId</label>
+                        </td>
+
+                        @* product name *@
+                        <td>
+                            <label>@orderItem.ProductName</label>
+                        </td>
+
+                        @* quantity  *@
+                        <td class="col-xs-2" onclick="calculateLineTotal(this)">
+                            <input class="form-control"
+                                   type="number"
+                                   id="sample"
+                                   value="@orderItem.Quantity" />
+                        </td>
+
+                        @* unit price *@
+                        <td class="col-sm-2">
+                            <label id="unitPrice">@orderItem.UnitPrice</label>
+                        </td>
+
+                        @* order line item total *@
+                        <td>
+                            <label>@orderItem.LineTotal</label>
+                        </td>
+
+                        @* remove order line button *@
+                        <th>
+                            <button class="btn-Delete btn btn-warning" onclick="deleteOrderLine(this)">Remove</button>
+                        </th>
+                    </tr>
+                }
+
+            </tbody>
+
+            <tfoot>
+                <tr id="row_grandTotal">
+                    <td></td>
+                    <td class="text-primary">Grand Total</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="grandTotal" class="text-primary">@Model.Order.TotalAmount</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="text-center">
+        <span>
+            <button type="submit" id="btnUpdate" class="btn btn-success">Update</button>
+            <a asp-action="Index" class="btn btn-danger">Cancel</a>
+        </span>
+    </div>
+
+</form>
+
+<script src="~/js/Order/UpdateOrder.js"></script>

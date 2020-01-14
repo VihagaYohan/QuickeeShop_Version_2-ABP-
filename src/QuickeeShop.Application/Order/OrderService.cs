@@ -48,6 +48,22 @@ namespace QuickeeShop.Order
 			}
 		}
 
+		// find order by id
+		public OrderBL FindByOrderId(int Id)
+		{
+			try
+			{
+				var order = orderRepository.GetAll().Include(o => o.OrderItems)
+													.Include(o => o.Customer)
+													.FirstOrDefault(o => o.Id == Id);
+				return mapper.Map<OrderBL>(order);
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
 		// create order
 		public void AddOrder(OrderBL entity)
 		{
@@ -87,14 +103,57 @@ namespace QuickeeShop.Order
 					throw ex;
 				}
 			}
-			//foreach (var item in entity.OrderItems)
-			//{
-			//	var getProdId = productRepository.Get(item.ProductId);
-			//	productService.UpdateQuantity(item.ProductId, -(item.Quantity));
+		}
 
-			//}
-			
+		// update order
+		public void UpdateOrder(OrderBL entity) 
+		{
+			if (entity == null)
+			{
+				throw new OrderNotFound();
+			}
+			else if (entity.OrderItems == null) 
+			{
+				throw new OrderItemNotFound();
+			}
+			else
+			{
+				try
+				{
+					using (var unitOfWork = unitOfWorkManager.Begin()) 
+					{
+						var objOrder = mapper.Map<OrderDL>(entity);
+						orderRepository.Update(objOrder);
 
+						var OrderListItems = new List<OrderItemBL>();
+						foreach (var item in entity.OrderItems)
+						{
+							var product = productRepository.GetAll().AsNoTracking()
+																	.FirstOrDefault(p => p.Id == item.ProductId);
+							item.ProductName = product.Name;
+							item.UnitPrice = product.UnitPrice;
+							item.Quantity = item.Quantity;
+							item.LineTotal = item.UnitPrice * item.Quantity;
+
+							OrderListItems.Add(item);
+
+							productService.UpdateQuantity(OrderListItems);
+
+							unitOfWork.Complete();
+						}
+
+					}
+				}
+				catch (Exception ex)
+				{
+					throw new Exception(ex.Message);
+				}
+			}
+		}
+
+		// delete order
+		public void DeleteOrder(int id) 
+		{
 
 		}
 	}

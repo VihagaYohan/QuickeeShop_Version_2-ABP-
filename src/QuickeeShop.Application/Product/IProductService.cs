@@ -9,7 +9,7 @@ namespace QuickeeShop.Product
 	public interface IProductService
 	{
 		IEnumerable<ProductBL> AllProducts();
-		public void UpdateQuantity(int productId, int qty);
+		//public void UpdateQuantity(int productId, int qty);
 		public void UpdateQuantity(List<OrderItemBL> OrderItems);
 	}
 }
