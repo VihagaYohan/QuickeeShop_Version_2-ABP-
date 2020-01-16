@@ -1,0 +1,335 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\test\\QuickeeShop.Tests\\QuickeeShop.Tests.csproj": {}
+  },
+  "projects": {
+    "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Application\\QuickeeShop.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Application\\QuickeeShop.Application.csproj",
+        "projectName": "QuickeeShop.Application",
+        "projectPath": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Application\\QuickeeShop.Application.csproj",
+        "packagesPath": "C:\\Users\\Yohan\\.nuget\\packages\\",
+        "outputPath": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Yohan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Core\\QuickeeShop.Core.csproj": {
+                "projectPath": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Core\\QuickeeShop.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "portable-net45+win8+wp8+wpa81",
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Core\\QuickeeShop.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Core\\QuickeeShop.Core.csproj",
+        "projectName": "QuickeeShop.Core",
+        "projectPath": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Core\\QuickeeShop.Core.csproj",
+        "packagesPath": "C:\\Users\\Yohan\\.nuget\\packages\\",
+        "outputPath": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Yohan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Abp.AutoMapper": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
+            "Abp.ZeroCore.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
+            "Castle.Windsor.MsDependencyInjection": {
+              "target": "Package",
+              "version": "[3.3.1, )"
+            }
+          },
+          "imports": [
+            "portable-net45+win8+wp8+wpa81",
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.EntityFrameworkCore\\QuickeeShop.EntityFrameworkCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.EntityFrameworkCore\\QuickeeShop.EntityFrameworkCore.csproj",
+        "projectName": "QuickeeShop.EntityFrameworkCore",
+        "projectPath": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.EntityFrameworkCore\\QuickeeShop.EntityFrameworkCore.csproj",
+        "packagesPath": "C:\\Users\\Yohan\\.nuget\\packages\\",
+        "outputPath": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.EntityFrameworkCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Yohan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Core\\QuickeeShop.Core.csproj": {
+                "projectPath": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Core\\QuickeeShop.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "portable-net45+win8+wp8+wpa81",
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\test\\QuickeeShop.Tests\\QuickeeShop.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\test\\QuickeeShop.Tests\\QuickeeShop.Tests.csproj",
+        "projectName": "QuickeeShop.Tests",
+        "projectPath": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\test\\QuickeeShop.Tests\\QuickeeShop.Tests.csproj",
+        "packagesPath": "C:\\Users\\Yohan\\.nuget\\packages\\",
+        "outputPath": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\test\\QuickeeShop.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Yohan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Application\\QuickeeShop.Application.csproj": {
+                "projectPath": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.Application\\QuickeeShop.Application.csproj"
+              },
+              "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.EntityFrameworkCore\\QuickeeShop.EntityFrameworkCore.csproj": {
+                "projectPath": "E:\\New Project\\quickee_shop_abp\\5.1.0\\aspnet-core\\src\\QuickeeShop.EntityFrameworkCore\\QuickeeShop.EntityFrameworkCore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Abp.TestBase": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
+            "Castle.Core": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.4.0, )"
+            },
+            "NSubstitute": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
+            "Shouldly": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.extensibility.execution": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.1, )"
+            }
+          },
+          "imports": [
+            "portable-net45+win8+wp8+wpa81",
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

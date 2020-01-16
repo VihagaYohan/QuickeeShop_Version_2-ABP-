@@ -31,6 +31,7 @@ namespace QuickeeShop.Web.Startup
             IocManager.Register<IRepository<CustomerDL>>();
             IocManager.Register<IRepository<ProductDL>>();
             IocManager.Register<IRepository<OrderDL>>();
+            IocManager.Register<IRepository<OrderItemDL>>();
         }
     }
 }

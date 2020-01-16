@@ -96,16 +96,20 @@ namespace QuickeeShop.Web.Controllers
         {
             try
             {
-                if (ModelState.IsValid) 
+                if (ModelState.IsValid)
                 {
                     orderService.UpdateOrder(entity);
+                    return RedirectToAction("Index");
+                }
+                else 
+                {
+                    return View();
                 }
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            return View();
         }
 
         [HttpGet]
@@ -129,9 +133,25 @@ namespace QuickeeShop.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(OrderBL entity) 
+        public IActionResult DeleteOrder(OrderBL entity) 
         {
-            return View();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var objOrder = orderService.FindByOrderId(entity.Id);
+                    orderService.DeleteOrder(objOrder);
+                    return RedirectToAction("Index");
+                }
+                else 
+                {
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         } 
     }
 }

@@ -11,6 +11,6 @@ namespace QuickeeShop.Order
 		void AddOrder(OrderBL order);
 		OrderBL FindByOrderId(int Id);
 		void UpdateOrder(OrderBL order);
-		void DeleteOrder(int id);
+		void DeleteOrder(OrderBL order);
 	}
 }

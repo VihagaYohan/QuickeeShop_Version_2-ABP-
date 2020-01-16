@@ -58,16 +58,20 @@ namespace QuickeeShop.Product
 			foreach (var item in orderItems)
 			{
 				var product = productRepository.GetAll().AsNoTracking().FirstOrDefault(p => p.Id == item.ProductId);
-				var existingOrderItem = orderItemRepository.GetAll().AsNoTracking().FirstOrDefault(o => o.Id == item.ProductId);
+				var existingOrderItem = orderItemRepository.GetAll().AsNoTracking().FirstOrDefault(i => i.Id == item.Id);
+
 				var existingQty = 0;
 				var currentInStock = product.Quantity;
 				var requestedQty = item.Quantity;
 				var QuantityToBeUpdated = 0;
 				var NewQuantity = 0;
 
+				// check if product is adding for the first time
 				if (existingOrderItem == null)
 				{
-					existingQty = existingOrderItem.Quantity;
+					//existingQty = existingOrderItem.Quantity;
+					existingQty = item.Quantity;
+					NewQuantity = product.Quantity - existingQty;
 				}
 
 				else if (requestedQty < existingQty)

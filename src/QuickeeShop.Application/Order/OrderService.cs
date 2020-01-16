@@ -17,18 +17,21 @@ namespace QuickeeShop.Order
 	{
 		private readonly IRepository<OrderDL> orderRepository;
 		private readonly IRepository<ProductDL> productRepository;
+		private readonly IRepository<OrderItemDL> orderItemRepository;
 		private readonly IObjectMapper mapper;
 		private readonly IUnitOfWorkManager unitOfWorkManager;
 		private readonly IProductService productService;
 
 		public OrderService(IRepository<OrderDL> orderRepository,
 							IRepository<ProductDL> productRepository,
+							IRepository<OrderItemDL> orderItemRepository,
 							IProductService productService,
 							IObjectMapper mapper,
 							IUnitOfWorkManager unitOfWorkManager)
 		{
 			this.orderRepository = orderRepository;
 			this.productRepository = productRepository;
+			this.orderItemRepository = orderItemRepository;
 			this.productService = productService;
 			this.mapper = mapper;
 			this.unitOfWorkManager = unitOfWorkManager;
@@ -106,55 +109,113 @@ namespace QuickeeShop.Order
 		}
 
 		// update order
+		//public void UpdateOrder(OrderBL entity) 
+		//{
+		//	if (entity == null)
+		//	{
+		//		throw new OrderNotFound();
+		//	}
+		//	else if (entity.OrderItems == null) 
+		//	{
+		//		throw new OrderItemNotFound();
+		//	}
+		//	else
+		//	{
+		//		try
+		//		{
+		//			using (var unitOfWork = unitOfWorkManager.Begin()) 
+		//			{
+		//				var objOrder = mapper.Map<OrderDL>(entity);
+		//				orderRepository.Update(objOrder);
+
+		//				var OrderListItems = new List<OrderItemBL>();
+		//				foreach (var item in entity.OrderItems)
+		//				{
+		//					var product = productRepository.GetAll().AsNoTracking()
+		//															.FirstOrDefault(p => p.Id == item.ProductId);
+		//					item.ProductName = product.Name;
+		//					item.UnitPrice = product.UnitPrice;
+		//					item.Quantity = item.Quantity;
+		//					item.LineTotal = item.UnitPrice * item.Quantity;
+
+		//					OrderListItems.Add(item);
+
+		//					productService.UpdateQuantity(OrderListItems);
+
+		//					unitOfWork.Complete();
+		//				}
+
+		//			}
+		//		}
+		//		catch (Exception ex)
+		//		{
+		//			throw new Exception(ex.Message);
+		//		}
+		//	}
+		//}
+
 		public void UpdateOrder(OrderBL entity) 
 		{
-			if (entity == null)
+			var existingOrder = orderRepository.GetAll().AsNoTracking()
+														.Include(o => o.OrderItems)
+														.FirstOrDefault(i => i.Id == entity.Id);
+
+
+			// validate order
+			if (entity == null) 
 			{
 				throw new OrderNotFound();
 			}
-			else if (entity.OrderItems == null) 
-			{
-				throw new OrderItemNotFound();
-			}
-			else
+
+			using (var unitOfWork = unitOfWorkManager.Begin()) 
 			{
 				try
 				{
-					using (var unitOfWork = unitOfWorkManager.Begin()) 
-					{
-						var objOrder = mapper.Map<OrderDL>(entity);
-						orderRepository.Update(objOrder);
+					var objOrder = mapper.Map<OrderDL>(entity);
+					orderRepository.Update(objOrder);
 
-						var OrderListItems = new List<OrderItemBL>();
-						foreach (var item in entity.OrderItems)
-						{
-							var product = productRepository.GetAll().AsNoTracking()
-																	.FirstOrDefault(p => p.Id == item.ProductId);
-							item.ProductName = product.Name;
-							item.UnitPrice = product.UnitPrice;
-							item.Quantity = item.Quantity;
-							item.LineTotal = item.UnitPrice * item.Quantity;
+					//var orderItems = mapper.Map<OrderItemDL>(entity.OrderItems);
+					productService.UpdateQuantity(entity.OrderItems);
 
-							OrderListItems.Add(item);
-
-							productService.UpdateQuantity(OrderListItems);
-
-							unitOfWork.Complete();
-						}
-
-					}
+					unitOfWork.Complete();
 				}
 				catch (Exception ex)
 				{
 					throw new Exception(ex.Message);
 				}
 			}
+					
 		}
 
 		// delete order
-		public void DeleteOrder(int id) 
+		public void DeleteOrder(OrderBL entity) 
 		{
+			if (entity == null) 
+			{
+				throw new OrderNotFound();
+			}
+			else 
+			{
+				try
+				{
+					using (var unitOfWork = unitOfWorkManager.Begin()) 
+					{
+						productService.UpdateQuantity(entity.OrderItems);
 
+						var objOrder = mapper.Map<OrderDL>(entity);
+						orderRepository.Delete(objOrder);
+
+						productService.UpdateQuantity(entity.OrderItems);
+
+						unitOfWork.Complete();
+
+					}
+				}
+				catch (Exception ex)
+				{
+					throw ex;
+				}
+			}
 		}
 	}
 }

@@ -1,0 +1,15 @@
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\bin\Debug\netcoreapp3.1\QuickeeShop.EntityFrameworkCore.dll.config
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\bin\Debug\netcoreapp3.1\QuickeeShop.EntityFrameworkCore.deps.json
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\bin\Debug\netcoreapp3.1\QuickeeShop.EntityFrameworkCore.runtimeconfig.json
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\bin\Debug\netcoreapp3.1\QuickeeShop.EntityFrameworkCore.runtimeconfig.dev.json
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\bin\Debug\netcoreapp3.1\QuickeeShop.EntityFrameworkCore.dll
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\bin\Debug\netcoreapp3.1\QuickeeShop.EntityFrameworkCore.pdb
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\bin\Debug\netcoreapp3.1\QuickeeShop.Core.dll
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\bin\Debug\netcoreapp3.1\QuickeeShop.Core.pdb
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\obj\Debug\netcoreapp3.1\QuickeeShop.EntityFrameworkCore.csprojAssemblyReference.cache
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\obj\Debug\netcoreapp3.1\QuickeeShop.EntityFrameworkCore.dll.config
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\obj\Debug\netcoreapp3.1\QuickeeShop.EntityFrameworkCore.AssemblyInfoInputs.cache
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\obj\Debug\netcoreapp3.1\QuickeeShop.EntityFrameworkCore.AssemblyInfo.cs
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\obj\Debug\netcoreapp3.1\QuickeeShop.EntityFrameworkCore.csproj.CopyComplete
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\obj\Debug\netcoreapp3.1\QuickeeShop.EntityFrameworkCore.dll
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.EntityFrameworkCore\obj\Debug\netcoreapp3.1\QuickeeShop.EntityFrameworkCore.pdb

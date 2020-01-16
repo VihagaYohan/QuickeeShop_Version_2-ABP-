@@ -1,0 +1,99 @@
+﻿@model QuickeeShop.Web.ViewModels.DeleteOrderViewModel
+@{
+    ViewData["Title"] = "Delete Order";
+}
+
+<h2>Delete</h2>
+
+<div class="text-center">
+    <h2>Order ID : <span class="text-danger" id="orderId">@Model.Order.Id</span></h2>
+    <input type="hidden" id="orderDate" value="@Model.Order.OrderDate" />
+</div>
+
+<form method="post"
+      asp-controller="Order"
+      asp-action="DeleteOrder">
+
+    <div class="form-group">
+        <label>Customer Name</label>
+        <input asp-for="@Model.Order.Customer.FullName" class="form-control" readonly />
+    </div>
+
+    <div class="center-block">
+
+        <table id="orderItems" class="table">
+            <thead class="text-center">
+                <tr>
+                    <th></th>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+
+            <tbody id="table-OrderItems">
+
+                @foreach (var orderItem in Model.Order.OrderItems)
+                {
+                    <tr class="table-Row">
+                        @* order line item Id *@
+                        <td>
+                            <input type="hidden" id="@orderItem.Id" value="@orderItem.Id" />
+                        </td>
+
+                        @* product id *@
+                        <td>
+                            <label>@orderItem.ProductId</label>
+                        </td>
+
+                        @* product name *@
+                        <td>
+                            <label>@orderItem.ProductName</label>
+                        </td>
+
+                        @* quantity  *@
+                        <td class="col-xs-2" onclick="calculateLineTotal(this)">
+                            <input class="form-control"
+                                   type="number"
+                                   id="sample"
+                                   value="@orderItem.Quantity" 
+                                   readonly/>
+                        </td>
+
+                        @* unit price *@
+                        <td class="col-sm-2">
+                            <label id="unitPrice">@orderItem.UnitPrice</label>
+                        </td>
+
+                        @* order line item total *@
+                        <td>
+                            <label>@orderItem.LineTotal</label>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+            <tfoot>
+                <tr id="row_grandTotal">
+                    <td></td>
+                    <td class="text-primary">Grand Total</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="grandTotal" class="text-primary">@Model.Order.TotalAmount</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="text-center">
+        <span>
+            <button type="submit" id="btnDelete" class="btn btn-danger">Delete</button>
+            <a asp-controller="Order" asp-action="Index" class="btn btn-success">Cancesl</a>
+        </span>
+    </div>
+
+</form>

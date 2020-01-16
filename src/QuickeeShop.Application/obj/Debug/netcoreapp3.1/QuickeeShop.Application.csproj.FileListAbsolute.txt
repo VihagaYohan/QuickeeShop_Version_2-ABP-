@@ -1,0 +1,11 @@
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.Application\bin\Debug\netcoreapp3.1\QuickeeShop.Application.deps.json
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.Application\bin\Debug\netcoreapp3.1\QuickeeShop.Application.dll
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.Application\bin\Debug\netcoreapp3.1\QuickeeShop.Application.pdb
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.Application\bin\Debug\netcoreapp3.1\QuickeeShop.Core.dll
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.Application\bin\Debug\netcoreapp3.1\QuickeeShop.Core.pdb
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.Application\obj\Debug\netcoreapp3.1\QuickeeShop.Application.csprojAssemblyReference.cache
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.Application\obj\Debug\netcoreapp3.1\QuickeeShop.Application.AssemblyInfoInputs.cache
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.Application\obj\Debug\netcoreapp3.1\QuickeeShop.Application.AssemblyInfo.cs
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.Application\obj\Debug\netcoreapp3.1\QuickeeShop.Application.csproj.CopyComplete
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.Application\obj\Debug\netcoreapp3.1\QuickeeShop.Application.dll
+E:\Projects\3\5.1.0\aspnet-core\src\QuickeeShop.Application\obj\Debug\netcoreapp3.1\QuickeeShop.Application.pdb
